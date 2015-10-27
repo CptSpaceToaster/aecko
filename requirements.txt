@@ -1,2 +1,4 @@
 docutils
 natsort
+pillow
+numpy

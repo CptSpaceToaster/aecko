@@ -3,7 +3,7 @@
 import sys
 
 __project__ = 'Aecko'
-__version__ = '1.0.0rc0'
+__version__ = '1.0.0rc3'
 
 CLI = 'aecko'
 VERSION = '{0} v{1}'.format(__project__, __version__)

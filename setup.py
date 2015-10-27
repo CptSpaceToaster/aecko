@@ -51,5 +51,7 @@ setuptools.setup(
 
     install_requires=[
         'natsort >= 4.0.3',
+        'pillow >= 3.0.0',
+        'numpy <= 1.10.1',
     ],
 )

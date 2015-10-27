@@ -90,10 +90,8 @@ install: .install
 
 .PHONY: register
 register: .register
-.register: $(PYTHON) README.rst setup.py
-	$(PYTHON) setup.py register
-	# TODO
-	# $(PYTHON) setup.py register --strict
+.register: $(PYTHON) .$(REQUIREMENTS) $(SOURCES) setup.py
+	$(PYTHON) setup.py register --strict
 	touch .register
 
 .PHONY: upload

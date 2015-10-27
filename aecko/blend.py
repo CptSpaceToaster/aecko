@@ -13,24 +13,13 @@ Written in a wonderful flurry of activitiy with contributions from
 """
 # System
 import os
-import re
 import argparse
 import subprocess
 import concurrent.futures
+import natsort
 
 # Local
 import aecko
-
-
-# TODO: Use natsort
-def natural_sort(l):
-    """
-    Sort algo
-    Makes 10 come after 9
-    """
-    convert = lambda text: int(text) if text.isdigit() else text.lower()
-    alphanum_key = lambda key: [convert(c) for c in re.split('([0-9]+)', key)]
-    return sorted(l, key=alphanum_key)
 
 
 def doCompare(lastFile, currentFile, outFile):
@@ -76,7 +65,7 @@ def main():
     # Initialize the threadpool
     pool = concurrent.futures.ThreadPoolExecutor(args.numberOfWorkers)
 
-    for filename in natural_sort(files):
+    for filename in natsort.natsorted(files):
         # Skip the first frame, because there's no previous image (check that first frame is an image)
         if not lastFile and filename.endswith('.png'):
             lastFile = filename
